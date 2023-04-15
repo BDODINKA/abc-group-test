@@ -1,10 +1,16 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
+  <V-Header/>
   <div>
-    <V-Button styleBtn="colored" disabled="true">Пройти тест</V-Button>
+    <V-Title>Тест на определение iq</V-Title>
+    <V-Button
+        styleBtn="colored"
+        disabled="true"
+    >
+      Пройти тест
+    </V-Button>
+    <V-ScrollBtn>Подробнее</V-ScrollBtn>
   </div>
 </template>
 

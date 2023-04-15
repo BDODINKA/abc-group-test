@@ -44,7 +44,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .default {
   width: 189px;
   height: 41px;
@@ -59,6 +59,13 @@ export default defineComponent({
   text-transform: uppercase;
   color: #0D0C11;
   cursor: pointer;
+
+  &:disabled {
+    color: #8E8E8E;
+    background: #DADADA;
+    box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.25);
+    pointer-events: none;
+  }
 }
 
 .colored {
@@ -72,9 +79,5 @@ export default defineComponent({
   background: transparent;
 }
 
-.default:disabled {
-  color: #8E8E8E;
-  background: #DADADA;
-  box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.25);
-}
+
 </style>

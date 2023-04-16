@@ -1,9 +1,9 @@
 <template>
-  <div class="box">
-    <button class="btn">
+  <div :class="$style['box']">
+    <button :class="$style['btn']">
       <i class="arrow up"></i>
     </button>
-    <p class="title">
+    <p :class="$style['title']">
       <slot></slot>
     </p>
   </div>
@@ -17,7 +17,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang="scss">
+<style module lang="scss">
 .box {
   display: flex;
   align-items: center;

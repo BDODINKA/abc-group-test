@@ -1,5 +1,5 @@
 <template>
-  <h1 class="title">
+  <h1 :class="$style['title']">
     <slot></slot>
   </h1>
 </template>
@@ -12,7 +12,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
+<style lang="scss" module>
 .title {
   font-family: 'Yeseva One', sans-serif;
   font-style: normal;

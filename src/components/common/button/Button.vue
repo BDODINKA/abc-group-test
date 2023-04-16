@@ -1,7 +1,6 @@
 <template>
   <button
-      class="default"
-      :class="className"
+      :class="[$style['default'],$style[className] ]"
       :disabled="isDisabled"
   >
     <slot></slot>
@@ -29,13 +28,13 @@ export default defineComponent({
     className() {
       switch (this.styleBtn) {
         case "colored": {
-          return {colored: this.styleBtn}
+          return this.styleBtn
         }
         case "transparent": {
-          return {transparent: this.styleBtn}
+          return this.styleBtn
         }
         default: {
-          return {default: this.styleBtn}
+          return this.styleBtn
         }
       }
     }
@@ -44,7 +43,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang="scss">
+<style module lang="scss">
 .default {
   width: 189px;
   height: 41px;

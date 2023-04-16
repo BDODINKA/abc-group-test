@@ -1,19 +1,15 @@
-<script setup lang="ts"></script>
-
 <template>
-  <V-Header/>
-  <div>
-    <V-Title>Тест на определение iq</V-Title>
-    <V-Button
-        styleBtn="colored"
-        disabled="true"
-    >
-      Пройти тест
-    </V-Button>
-    <V-ScrollBtn>Подробнее</V-ScrollBtn>
-  </div>
+  <v-header/>
+  <v-preview></v-preview>
+  <v-quotes></v-quotes>
+  <v-advice></v-advice>
+  <v-recommendations></v-recommendations>
+  <v-footer/>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 
 </style>
+<script>
+
+</script>

@@ -20,6 +20,14 @@
             to="/"
             :class="$style['nav_item']">Главная
         </router-link>
+        <router-link
+            to="/"
+            :class="$style['nav_item']">Информация о тесте
+        </router-link>
+        <router-link
+            to="/"
+            :class="$style['nav_item']">пройти тест
+        </router-link>
       </nav>
     </div>
   </header>
@@ -75,7 +83,6 @@ export default defineComponent({
       height: 20px;
       cursor: pointer;
 
-
       > span {
         display: block;
         position: absolute;
@@ -83,6 +90,7 @@ export default defineComponent({
         height: 2px;
         background: #696969;
         transition: 0.3s;
+
 
         &:before, &:after {
           content: '';
@@ -102,6 +110,20 @@ export default defineComponent({
           content: "";
           top: 8px;
         }
+
+
+      }
+
+      &:hover {
+        > span {
+          background: #F4CE0C;
+
+          &:before, &:after {
+            background: #F4CE0C;
+          }
+        }
+
+
       }
     }
 
@@ -111,10 +133,14 @@ export default defineComponent({
       opacity: 0;
 
       &:checked ~ .menu_btn {
-        right: 0;
+        right: 13px;
+        top: 18px;
+        width: 28px;
+        height: 28px;
 
         > span {
           transform: rotate(45deg);
+
 
           &:before {
             top: 0;
@@ -126,12 +152,29 @@ export default defineComponent({
             transform: rotate(90deg);
           }
         }
+
       }
 
       &:checked ~ .nav_items {
         visibility: visible;
-        right: 0;
+        display: flex;
+        padding: 110px 20px 0;
+
+        .nav_item {
+          font-family: 'Roboto', sans-serif;
+          font-weight: 300;
+          font-size: 16px;
+          line-height: 22px;
+          text-transform: uppercase;
+          color: #FFFFFF;
+          text-decoration: none;
+
+          &:hover {
+            color: #F4CE0C;
+          }
+        }
       }
+
     }
 
     .nav_items {
@@ -141,9 +184,8 @@ export default defineComponent({
       justify-content: space-evenly;
       top: 0;
       right: 0;
-      max-width: 225px;
       width: 100%;
-      height: 90vh;
+      height: 100vh;
       background: black;
       z-index: 1;
     }

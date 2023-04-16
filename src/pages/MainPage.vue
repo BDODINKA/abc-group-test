@@ -1,9 +1,11 @@
 <template>
   <v-header/>
-  <v-preview></v-preview>
-  <v-quotes></v-quotes>
-  <v-advice></v-advice>
-  <v-recommendations></v-recommendations>
+  <main>
+    <v-preview></v-preview>
+    <v-quotes></v-quotes>
+    <v-advice></v-advice>
+    <v-recommendations></v-recommendations>
+  </main>
   <v-footer/>
 </template>
 

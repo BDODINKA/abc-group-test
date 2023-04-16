@@ -1,13 +1,15 @@
 <template>
-  <v-header/>
-  <v-question/>
+  <div>
+    <input type="radio"/>
+    <slot></slot>
+  </div>
 </template>
 
-<script lang="ts">
+<script>
 import {defineComponent} from "vue";
 
 export default defineComponent({
-  name: "QuestionPage",
+  name: "VSelect"
 })
 </script>
 

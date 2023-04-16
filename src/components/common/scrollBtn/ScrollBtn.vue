@@ -1,7 +1,7 @@
 <template>
   <div :class="$style['box']">
     <button :class="$style['btn']">
-      <i class="arrow up"></i>
+      <i :class="[$style['arrow'],$style['up']]"></i>
     </button>
     <p :class="$style['title']">
       <slot></slot>

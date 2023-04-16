@@ -5,15 +5,16 @@
     <V-Button
         styleBtn="colored"
         isDisabled="true"
+        :class="$style['btn']"
     >
       Пройти тест
     </V-Button>
-    <p>
+    <p :class="$style['description']">
       И получите рекомендации
       по развитию своего интеллекта
       и улучшению финансового благосостояния и личной жизни
     </p>
-    <V-ScrollBtn>Подробнее</V-ScrollBtn>
+    <V-ScrollBtn :class="$style['scroll_btn']">Подробнее</V-ScrollBtn>
   </v-wrapper>
 </template>
 
@@ -31,13 +32,12 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: url("src/assets/Bg1.webp") no-repeat;
+  background: url("src/assets/Bg1.webp") no-repeat 50% 40px;
   background-size: cover;
-  width: 100%;
-  height: auto;
-  padding: 40px 25px 0;
+  padding: 40px 20px 11px;
 
   .title {
+    padding: 27px 0 0;
     font-family: 'PT Serif', sans-serif;
     font-weight: 400;
     font-size: 18px;
@@ -46,6 +46,24 @@ export default defineComponent({
     letter-spacing: 0.05em;
     text-transform: uppercase;
     color: #FFFFFF;
+  }
+
+  .btn {
+    margin-top: 150px;
+  }
+
+  .description {
+    padding-top: 22px;
+    font-family: 'PT Serif', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.05em;
+  }
+
+  .scroll_btn {
+    padding-top: 20px;
   }
 }
 </style>

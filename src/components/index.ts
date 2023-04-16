@@ -4,5 +4,6 @@ import advice from '../components/sectionAdvice/SectionAdvice.vue'
 import quotes from '../components/sectionQuotes/SectionQuotes.vue'
 import preview from '../components/sectionPreview/SectionPreview.vue'
 import recommendation from '../components/sectionRecommendations/SectionRecommendations.vue'
+import footer from '../components/footer/Footer.vue'
 
-export default [...components, header, advice, quotes, preview, recommendation]
+export default [...components, header, advice, quotes, preview, recommendation, footer]

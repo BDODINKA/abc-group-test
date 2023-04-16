@@ -4,8 +4,8 @@
     <v-title>Тест на определение iq</v-title>
     <V-Button
         styleBtn="colored"
-        isDisabled="true"
         :class="$style['btn']"
+        @click.prevent="$router.push( '/question')"
     >
       Пройти тест
     </V-Button>

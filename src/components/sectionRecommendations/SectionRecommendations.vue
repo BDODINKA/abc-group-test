@@ -12,6 +12,7 @@
     <v-button
         styleBtn="transparent"
         :class="$style['btn']"
+        @click.prevent="$router.push( '/question')"
     >
       Пройти тест
     </v-button>

@@ -1,5 +1,6 @@
 <template>
   <v-wrapper :class="$style['wrapper']">
+    <v-select>Вариант</v-select>
     <v-button
         isDisabled="true"
         :class="$style['btn']"
@@ -14,6 +15,8 @@ import {defineComponent} from "vue";
 
 export default defineComponent({
   name: "VQuestion",
+  components: {},
+
 })
 </script>
 
@@ -29,7 +32,7 @@ export default defineComponent({
   width: 100vw;
 
   .btn {
-    
+
   }
 }
 </style>

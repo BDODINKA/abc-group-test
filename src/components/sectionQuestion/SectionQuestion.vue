@@ -1,5 +1,6 @@
 <template>
   <v-wrapper :class="$style['wrapper']">
+    <v-progress-bar progress="10"/>
     <v-select>Вариант</v-select>
     <v-button
         isDisabled="true"
@@ -15,7 +16,6 @@ import {defineComponent} from "vue";
 
 export default defineComponent({
   name: "VQuestion",
-  components: {},
 
 })
 </script>

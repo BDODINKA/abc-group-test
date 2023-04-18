@@ -1,9 +1,7 @@
 <template>
   <label :class="$style['label']">
     <input type="radio" name="radio" checked :class="$style['input']"/>
-    <p :class="$style['text']">
-      <slot></slot>
-    </p>
+    <slot></slot>
   </label>
 
 </template>
@@ -22,11 +20,26 @@ export default defineComponent({
 .label {
   display: flex;
   cursor: pointer;
-  font-weight: 500;
   position: relative;
   overflow: hidden;
   margin-bottom: 0.375em;
   width: 100%;
+
+  padding: 0 11%;
+  gap: 39px;
+  min-height: 50px;
+  height: 10vw;
+  align-items: center;
+  transition: 0.25s ease;
+  background: rgba(242, 243, 243, 0.15);
+
+
+  font-family: 'PT Serif', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0.05em;
+
+  color: #FFFFFF;
 
 
   .input {
@@ -43,43 +56,22 @@ export default defineComponent({
     }
   }
 
-  .text {
-    width: 100%;
-    padding: 0 11%;
-    gap: 39px;
+  &:hover {
+    background-color: #FFC700;
+    color: #0D0C11;
+    box-shadow: inset 0 0 0 0.125em black;
+  }
+
+  &:before {
     display: flex;
-    min-height: 50px;
-    height: 10vw;
-    align-items: center;
+    flex-shrink: 0;
+    content: "";
+    background-color: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
     transition: 0.25s ease;
-    background: rgba(242, 243, 243, 0.15);
-
-
-    font-family: 'PT Serif', sans-serif;
-    font-weight: 400;
-    font-size: 18px;
-    letter-spacing: 0.05em;
-
-    color: #FFFFFF;
-
-
-    &:hover {
-      background-color: #FFC700;
-      color: #0D0C11;
-      box-shadow: inset 0 0 0 0.125em black;
-    }
-
-    &:before {
-      display: flex;
-      flex-shrink: 0;
-      content: "";
-      background-color: #fff;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      transition: 0.25s ease;
-      box-shadow: inset 0 0 0 0.125em white;
-    }
+    box-shadow: inset 0 0 0 0.125em white;
   }
 }
 

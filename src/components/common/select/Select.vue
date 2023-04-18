@@ -1,7 +1,7 @@
 <template>
-  <label>
-    <input type="radio" name="radio" checked/>
-    <p>
+  <label :class="$style['label']">
+    <input type="radio" name="radio" checked :class="$style['input']"/>
+    <p :class="$style['text']">
       <slot></slot>
     </p>
   </label>
@@ -19,7 +19,7 @@ export default defineComponent({
 <style module lang="scss">
 
 
-label {
+.label {
   display: flex;
   cursor: pointer;
   font-weight: 500;
@@ -29,11 +29,11 @@ label {
   width: 100%;
 
 
-  input {
+  .input {
     position: absolute;
     left: -9999px;
 
-    &:checked + p {
+    &:checked + .text {
       background-color: #FFC700;
 
       &:before {
@@ -43,7 +43,7 @@ label {
     }
   }
 
-  p {
+  .text {
     width: 100%;
     padding: 0 11%;
     gap: 39px;

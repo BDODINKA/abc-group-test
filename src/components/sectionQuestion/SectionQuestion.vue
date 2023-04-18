@@ -2,7 +2,8 @@
   <v-wrapper :class="$style['wrapper']">
     <v-progress-bar progress="10"/>
     <v-select>Вариант</v-select>
-    <v-select-color/>
+    <!--    <v-select-color/>-->
+    <v-select-btn/>
     <v-button
         isDisabled="true"
         :class="$style['btn']"
@@ -14,12 +15,9 @@
 <script>
 
 import {defineComponent} from "vue";
-import VSelectColor from "@/components/common/selectColor/SelectColor.vue";
 
 export default defineComponent({
   name: "VQuestion",
-  components: {VSelectColor},
-
 })
 </script>
 

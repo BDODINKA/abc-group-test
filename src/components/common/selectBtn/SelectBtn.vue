@@ -1,9 +1,15 @@
 <template>
   <div :class="$style['container']">
-    <label :class="$style['color_btn']" v-for="item in data" :key="item">
+    <label
+        :class="$style['color_btn']"
+        v-for="item in data"
+        :key="item"
+        @change="selected"
+    >
       <input type="radio"
              :class="$style['radio']"
              name="color"
+             :value="item"
       />
       <slot>{{ item }}</slot>
     </label>
@@ -26,8 +32,14 @@ export default defineComponent({
     },
     data: {
       type: Array as PropType<ISelectBtn>
+    },
+  },
+  methods: {
+    selected(e: any) {
+      console.log(e.target.value)
     }
   }
+
 })
 </script>
 

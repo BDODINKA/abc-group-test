@@ -1,23 +1,56 @@
 <template>
-  <v-wrapper :class="$style['wrapper']">
-    <v-progress-bar progress="10"/>
-    <v-select>Вариант</v-select>
-    <!--    <v-select-color/>-->
-    <v-select-btn/>
+  <v-wrapper
+      :class="$style['wrapper']"
+      v-for="quest in questionData"
+      :key="quest.question"
+  >
+    <v-progress-bar v-bind:progress="question*10"/>
+    <p>{{ quest.question }}</p>
+    <v-select
+        v-if="typeof quest.answers[0] ===  'string' && quest.answers[0].indexOf('#')"
+        :answers="[...quest.answers]"
+    />
+    <v-select-color
+        v-if="!quest.answers[0].indexOf('#')"
+        :colors="[...quest.answers]"
+    />
+    <v-select-btn
+        v-else-if="typeof quest.answers[0] ===  'number'"
+        :withLine="true"
+        :data="[...quest.answers]"
+    />
+
+
     <v-button
-        isDisabled="true"
+        v-bind:isDisabled="true"
         :class="$style['btn']"
     >Далее
     </v-button>
   </v-wrapper>
 </template>
 
-<script>
+<script lang="ts">
 
 import {defineComponent} from "vue";
+import {questions} from "@/api/mocData/questions";
+
 
 export default defineComponent({
   name: "VQuestion",
+  data() {
+    return {
+      questions: questions,
+      question: 0,
+      quest: {},
+      answers: []
+    }
+  },
+  methods: {},
+  computed: {
+    questionData() {
+      return this.questions.filter((value, index) => index === this.question)
+    }
+  }
 })
 </script>
 

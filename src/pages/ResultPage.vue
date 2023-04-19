@@ -1,6 +1,6 @@
 <template>
   <v-header/>
-  
+  <v-call-btn/>
   <v-footer/>
 </template>
 
@@ -8,7 +8,7 @@
 import {defineComponent} from "vue";
 
 export default defineComponent({
-  name: "ResultPage"
+  name: "ResultPage",
 })
 </script>
 

@@ -3,7 +3,7 @@ import question1 from '@/assets/question1.webp'
 import question2 from '@/assets/question2.webp'
 import question3 from '@/assets/question3.webp'
 
-export const question: IQuestion[] = [
+export const questions: IQuestion[] = [
   {
     question: 'Ваш Пол:',
     answers: ['Мужчина', 'Женщина']

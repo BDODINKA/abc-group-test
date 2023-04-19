@@ -1,16 +1,32 @@
 <template>
-  <label :class="$style['label']">
-    <input type="radio" name="radio" checked :class="$style['input']"/>
-    <slot></slot>
+  <label
+      :class="$style['label']"
+      v-for="answer in answers"
+      :key="answer"
+
+  >
+    <input
+        type="radio"
+        name="radio"
+        checked
+        :class="$style['input']"
+    />
+    <slot>{{ answer }}</slot>
   </label>
 
 </template>
 
-<script>
+<script lang="ts">
 import {defineComponent} from "vue";
+import type {PropType} from "vue";
 
 export default defineComponent({
-  name: "VSelect"
+  name: "VSelect",
+  props: {
+    answers: {
+      type: Array as PropType<string[]>
+    }
+  }
 })
 </script>
 

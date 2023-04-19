@@ -26,11 +26,20 @@ export default {
 
   .color_btn {
     width: 41px;
-    height: 44px;
+    height: 41px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: white;
+    font-family: 'PT Serif', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 49px;
+
+    text-transform: capitalize;
+
+    color: #0D0C11;
 
     .radio {
       display: none;

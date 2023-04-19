@@ -7,6 +7,7 @@ import ProgressBar from '@/components/common/progressBar/ProgressBar.vue'
 import Select from '@/components/common/select/Select.vue'
 import SelectColor from '@/components/common/selectColor/SelectColor.vue'
 import SelectBtn from '@/components/common/selectBtn/SelectBtn.vue'
+import CallBtn from '@/components/common/callBtn/CallBtn.vue'
 
 export default [
   Button,
@@ -17,5 +18,6 @@ export default [
   ProgressBar,
   Select,
   SelectColor,
-  SelectBtn
+  SelectBtn,
+  CallBtn
 ]

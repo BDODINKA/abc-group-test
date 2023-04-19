@@ -3,13 +3,13 @@
       :class="$style['label']"
       v-for="answer in answers"
       :key="answer"
-
   >
     <input
         type="radio"
         name="radio"
-        checked
         :class="$style['input']"
+        @input="$emit('update:modelValue', $event.target.value)"
+        :value="answer"
     />
     <slot>{{ answer }}</slot>
   </label>
@@ -22,11 +22,15 @@ import type {PropType} from "vue";
 
 export default defineComponent({
   name: "VSelect",
+  data() {
+    return {check: []}
+  },
   props: {
     answers: {
       type: Array as PropType<string[]>
     }
-  }
+  },
+  emits: ['update:modelValue'],
 })
 </script>
 
@@ -62,7 +66,7 @@ export default defineComponent({
     position: absolute;
     left: -9999px;
 
-    &:checked + .text {
+    &:checked {
       background-color: #FFC700;
 
       &:before {

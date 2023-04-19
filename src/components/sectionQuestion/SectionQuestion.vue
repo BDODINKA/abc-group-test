@@ -4,12 +4,14 @@
       v-for="quest in questionData"
       :key="quest.question"
   >
-    <v-progress-bar v-bind:progress="question*10"/>
+    <v-progress-bar v-bind:progress="question * 10"/>
     <p>{{ quest.question }}</p>
     <v-select
         v-if="typeof quest.answers[0] ===  'string' && quest.answers[0].indexOf('#')"
         :answers="[...quest.answers]"
+        @update:model-value="radio"
     />
+    <div>PICKED:{{ input }}</div>
     <v-select-color
         v-if="!quest.answers[0].indexOf('#')"
         :colors="[...quest.answers]"
@@ -22,8 +24,9 @@
 
 
     <v-button
-        v-bind:isDisabled="true"
+        v-bind:isDisabled="!answers"
         :class="$style['btn']"
+        :style-btn="'colored'"
     >Далее
     </v-button>
   </v-wrapper>
@@ -42,14 +45,19 @@ export default defineComponent({
       questions: questions,
       question: 0,
       quest: {},
-      answers: []
+      answers: [],
+      input: ''
     }
   },
-  methods: {},
+  methods: {
+    radio(e: any) {
+      return this.input = e
+    },
+  },
   computed: {
     questionData() {
       return this.questions.filter((value, index) => index === this.question)
-    }
+    },
   }
 })
 </script>

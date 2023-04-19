@@ -1,28 +1,44 @@
 <template>
   <div :class="$style['container']">
-    <label :class="$style['color_btn']">
+    <label :class="$style['color_btn']" v-for="item in data" :key="item">
       <input type="radio"
              :class="$style['radio']"
              name="color"
       />
-      <slot>11</slot>
+      <slot>{{ item }}</slot>
     </label>
   </div>
 </template>
 
-<script>
-export default {
-  name: "VSelectBtn"
-}
+<script lang="ts">
+import {defineComponent} from 'vue'
+
+import type {PropType} from 'vue'
+
+import type {ISelectBtn} from "@/interface/ISelectBtn";
+
+export default defineComponent({
+  name: "VSelectBtn",
+  props: {
+    withLine: {
+      type: Boolean,
+      default: false
+    },
+    data: {
+      type: Array as PropType<ISelectBtn>
+    }
+  }
+})
 </script>
 
 <style module lang="scss">
 .container {
   color: black;
-
-
   width: 100%;
-  height: 100%;
+  border-top: 4px solid rgba(242, 243, 243, 0.15);
+  padding: 22px 0;
+  display: flex;
+  justify-content: space-evenly;
 
   .color_btn {
     width: 41px;

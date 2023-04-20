@@ -4,12 +4,13 @@
         :class="$style['color_btn']"
         v-for="color in colors"
         :key="color"
-        :style="{background:color}"
+        :style="{background:`${color}`}"
     >
       <input type="radio"
              :class="$style['radio']"
              name="color"
              :value="color"
+             @input="$emit('update:modelValue', $event.target.value)"
       />
     </label>
 

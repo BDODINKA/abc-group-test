@@ -22,9 +22,6 @@ import type {PropType} from "vue";
 
 export default defineComponent({
   name: "VSelect",
-  data() {
-    return {check: []}
-  },
   props: {
     answers: {
       type: Array as PropType<string[]>
@@ -53,7 +50,6 @@ export default defineComponent({
   transition: 0.25s ease;
   background: rgba(242, 243, 243, 0.15);
 
-
   font-family: 'PT Serif', sans-serif;
   font-weight: 400;
   font-size: 18px;
@@ -61,26 +57,26 @@ export default defineComponent({
 
   color: #FFFFFF;
 
-
   .input {
-    position: absolute;
-    left: -9999px;
+    display: none;
+  }
 
-    &:checked {
-      background-color: #FFC700;
+  &:has(.input:checked) {
+    background: #FFC700;
 
-      &:before {
-        box-shadow: inset 0 0 0 1px #272727;
-        background: #2950C2;
-      }
+    &:before {
+      box-shadow: inset 0 0 0 1px #272727;
+      background: #2950C2;
     }
   }
+
 
   &:hover {
     background-color: #FFC700;
     color: #0D0C11;
     box-shadow: inset 0 0 0 0.125em black;
   }
+
 
   &:before {
     display: flex;

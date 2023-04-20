@@ -4,11 +4,11 @@
         :class="$style['color_btn']"
         v-for="item in data"
         :key="item"
-        @change="selected"
     >
       <input type="radio"
              :class="$style['radio']"
              name="color"
+             @input="$emit('update:modelValue', $event.target.value)"
              :value="item"
       />
       <slot>{{ item }}</slot>
@@ -34,12 +34,6 @@ export default defineComponent({
       type: Array as PropType<ISelectBtn>
     },
   },
-  methods: {
-    selected(e: any) {
-      console.log(e.target.value)
-    }
-  }
-
 })
 </script>
 

@@ -4,7 +4,7 @@
       v-for="quest in questionData"
       :key="quest.question"
   >
-    <v-progress-bar v-bind:progress="question * 10"/>
+    <v-progress-bar v-bind:progress="progress"/>
     <p>{{ quest.question }}</p>
     <img
         v-if="quest.img"
@@ -14,19 +14,19 @@
     <v-select
         v-if="typeof quest.answers[0] ===  'string' && quest.answers[0].indexOf('#')"
         :answers="[...quest.answers]"
-        @update:model-value="radio"
+        @update:model-value="radioValue"
     />
 
     <v-select-btn
         v-else-if="typeof quest.answers[0] ===  'number'"
         :withLine="true"
         :data="[...quest.answers]"
-        @update:model-value="radio"
+        @update:model-value="radioValue"
     />
     <v-select-color
         v-else
         :colors="[...quest.answers]"
-        @update:model-value="radio"
+        @update:model-value="radioValue"
     />
 
     <div>PICKED:{{ input }}</div>
@@ -44,6 +44,7 @@
 
 import {defineComponent} from "vue";
 import {questions} from "@/api/mocData/questions";
+import router from "@/router";
 
 
 export default defineComponent({
@@ -51,27 +52,34 @@ export default defineComponent({
   data() {
     return {
       questions: questions,
-      question: 3,
+      currentQuestion: 0,
       quest: {},
       answers: [] as Array<string>,
       input: '',
     }
   },
   methods: {
-    radio(e: any) {
-      console.log(this.answers)
-      return this.input = e
+    radioValue(e: any) {
+      this.input = e
     },
     nextQuestion() {
-      this.answers.push(this.input)
-      this.input = ''
-      return this.question++
+      if (this.questions.length - 1 !== this.answers.length) {
+        this.answers.push(this.input)
+        this.input = ''
+        this.currentQuestion++
+      } else {
+        this.answers.push(this.input)
+        router.push('/result')
+      }
     },
   },
   computed: {
     questionData() {
-      return this.questions.filter((value, index) => index === this.question)
+      return this.questions.filter((value, index) => index === this.currentQuestion)
     },
+    progress() {
+      return this.currentQuestion * 10
+    }
   }
 })
 </script>

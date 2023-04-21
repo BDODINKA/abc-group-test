@@ -1,8 +1,15 @@
 <template>
   <v-wrapper
       :class="$style['wrapper']"
+      v-if="wait"
+  >
+    <v-spinner/>
+  </v-wrapper>
+  <v-wrapper
+      :class="$style['wrapper']"
       v-for="quest in questionData"
       :key="quest.question"
+      v-else
   >
     <v-progress-bar v-bind:progress="progress"/>
     <p>{{ quest.question }}</p>
@@ -45,10 +52,12 @@
 import {defineComponent} from "vue";
 import {questions} from "@/api/mocData/questions";
 import router from "@/router";
+import VSpinner from "@/components/common/spinner/Spinner.vue";
 
 
 export default defineComponent({
   name: "VQuestion",
+  components: {VSpinner},
   data() {
     return {
       questions: questions,
@@ -56,6 +65,7 @@ export default defineComponent({
       quest: {},
       answers: [] as Array<string>,
       input: '',
+      wait: false,
     }
   },
   methods: {
@@ -69,7 +79,10 @@ export default defineComponent({
         this.currentQuestion++
       } else {
         this.answers.push(this.input)
-        router.push('/result')
+        this.wait = true
+        setTimeout(() => {
+          router.push('/result')
+        }, 6000)
       }
     },
   },

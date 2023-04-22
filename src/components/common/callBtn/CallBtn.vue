@@ -49,6 +49,7 @@ export default defineComponent({
   gap: 18px;
   background: #EB1B00;
   border-radius: 5px;
+  cursor: pointer;
 
   &.disabled {
     pointer-events: none;

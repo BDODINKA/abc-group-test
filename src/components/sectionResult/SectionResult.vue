@@ -1,5 +1,18 @@
 <template>
-  <v-wrapper :class="$style['wrapper']">
+  <v-wrapper v-if="!error && result" :class="$style['wrapper']">
+    <div
+        v-for="(elem, key) in result"
+        :key="elem"
+        :class="$style['box_data']"
+    >
+      <h3 :class="$style['data_description']">{{ key }}:</h3>
+      <p :class="$style['value_description']">{{ elem }}</p>
+    </div>
+  </v-wrapper>
+  <v-wrapper v-else-if="error" :class="$style['wrapper']">
+    <h3 :class="$style['error']">{{ error }}</h3>
+  </v-wrapper>
+  <v-wrapper v-else :class="$style['wrapper']">
     <h3 :class="$style['title']">
       Ваш результат рассчитан:
     </h3>
@@ -35,12 +48,15 @@
     <v-call-btn
         :class="$style['call_btn']"
         :isDisabled="stopCount"
+        @click="getApi"
     />
   </v-wrapper>
 </template>
 
 <script lang="ts">
 import {defineComponent} from "vue";
+import {getData} from "@/api/getData";
+import type {responseApi} from "@/interface/iApi";
 
 
 export default defineComponent({
@@ -50,6 +66,8 @@ export default defineComponent({
           count: `${this.time}:00`,
           timer: 0,
           stopCount: false,
+          result: null as unknown as responseApi,
+          error: null as unknown as string
         };
       },
       props: {
@@ -71,6 +89,17 @@ export default defineComponent({
         stopTimer() {
           clearTimeout(this.timer)
         },
+        async getApi() {
+          try {
+            const {name, birth_year, eye_color, hair_color, skin_color, height, gender, mass} = await getData()
+            this.result = {name, birth_year, gender, hair_color, skin_color, mass, eye_color, height}
+          } catch (error) {
+            if (error instanceof Error) {
+              console.log(error.message)
+              this.error = error.message
+            }
+          }
+        }
       },
       mounted() {
         this.counter()
@@ -96,6 +125,30 @@ export default defineComponent({
   padding: 64px 11px 0;
   background-size: cover;
   min-height: 100vh;
+
+  .box_data {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(auto-fit, 1fr);
+    align-items: center;
+    justify-items: stretch;
+    width: 80%;
+
+    .data_description {
+      font-size: 24px;
+      color: #3BDE7C;
+    }
+
+    .value_description {
+      font-size: 20px;
+      color: #F4CE0C;
+    }
+  }
+
+  .error {
+    font-size: 30px;
+    color: #EB1B00;
+  }
 
   .title {
     font-family: 'PT Serif', sans-serif;

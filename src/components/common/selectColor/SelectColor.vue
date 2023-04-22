@@ -47,6 +47,7 @@ export default defineComponent({
   .color_btn {
     width: 100%;
     height: 100%;
+    cursor: pointer;
 
     .radio {
       display: block;

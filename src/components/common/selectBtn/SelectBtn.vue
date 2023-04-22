@@ -58,9 +58,8 @@ export default defineComponent({
     font-weight: 400;
     font-size: 20px;
     line-height: 49px;
-
+    cursor: pointer;
     text-transform: capitalize;
-
     color: #0D0C11;
 
     .radio {

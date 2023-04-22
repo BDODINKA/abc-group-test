@@ -61,6 +61,9 @@ export default defineComponent({
   z-index: 10;
 
   .wrapper {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
     height: 46px;
     background: #181818;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -198,6 +201,9 @@ export default defineComponent({
       justify-content: space-evenly;
       top: 0;
       right: 0;
+      left: 0;
+      max-width: 1024px;
+      margin: 0 auto;
       width: 100%;
       height: 100vh;
       background: black;

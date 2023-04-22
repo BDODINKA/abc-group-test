@@ -91,8 +91,11 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: url("src/assets/bg2.webp");
+  justify-content: space-evenly;
+  background: url("src/assets/bg2.webp") no-repeat;
   padding: 64px 11px 0;
+  background-size: cover;
+  min-height: 100vh;
 
   .title {
     font-family: 'PT Serif', sans-serif;
@@ -159,12 +162,12 @@ export default defineComponent({
     }
 
     .count {
-      font-size: 20px;
+      font-size: 42px;
     }
   }
 
   .call_btn {
-    margin-bottom: 142px;
+    margin-bottom: 20px;
   }
 }
 </style>

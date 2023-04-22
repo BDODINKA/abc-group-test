@@ -6,7 +6,7 @@
   <main>
     <v-result :time="10"/>
   </main>
-  <v-footer/>
+  <v-footer :copyright="false"/>
 </template>
 
 <script>
@@ -14,6 +14,5 @@ import {defineComponent} from "vue";
 
 export default defineComponent({
   name: "ResultPage",
-
 })
 </script>

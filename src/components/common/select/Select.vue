@@ -45,7 +45,7 @@ export default defineComponent({
   padding: 0 11%;
   gap: 39px;
   min-height: 50px;
-  height: 10vw;
+  height: max-content;
   align-items: center;
   transition: 0.25s ease;
   background: rgba(242, 243, 243, 0.15);

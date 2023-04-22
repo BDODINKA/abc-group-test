@@ -1,7 +1,5 @@
 <template>
-  <a href="tel:"
-     :class="[$style['wrapper'],isDisabled && $style['disabled']]"
-  >
+  <a :class="[$style['wrapper'],isDisabled && $style['disabled']]">
     <svg :class="$style['phone']" viewBox="0 0 29 29" fill="none"
          xmlns="http://www.w3.org/2000/svg">
       <path
@@ -71,9 +69,7 @@ export default defineComponent({
     line-height: 18px;
     letter-spacing: 0.05em;
     text-transform: capitalize;
-
     color: #FFFFFF;
-
   }
 }
 </style>

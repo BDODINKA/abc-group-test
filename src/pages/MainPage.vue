@@ -1,10 +1,10 @@
 <template>
   <v-header/>
   <main>
-    <v-preview></v-preview>
-    <v-quotes></v-quotes>
-    <v-advice></v-advice>
-    <v-recommendations></v-recommendations>
+    <v-preview/>
+    <v-quotes/>
+    <v-advice/>
+    <v-recommendations/>
   </main>
   <v-footer/>
 </template>
@@ -16,7 +16,3 @@ export default defineComponent({
   name: "ResultPage"
 })
 </script>
-
-<style scoped>
-
-</style>

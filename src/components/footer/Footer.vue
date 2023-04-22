@@ -3,7 +3,7 @@
       :class="$style['footer']"
       v-on:scroll="handleScroll"
   >
-    <div :class="$style['wrapper']">
+    <div :class="[$style['wrapper'],$style[classNameCopy]]">
       <p :class="$style['copyright']" v-if="copyright">
         2019
       </p>
@@ -43,6 +43,9 @@ export default defineComponent({
   computed: {
     className() {
       return this.scroll && 'scroll'
+    },
+    classNameCopy() {
+      return this.copyright && 'wrapper_copyright'
     }
   },
   methods: {
@@ -51,7 +54,7 @@ export default defineComponent({
       if ((window.scrollY + window.innerHeight) >= document.body.offsetHeight) {
         this.timeOut = setTimeout(() => {
           this.scroll = true
-        }, 500)
+        }, 1000)
       }
     },
     stopTimer() {
@@ -78,6 +81,13 @@ export default defineComponent({
     width: 100%;
     margin: 0 auto;
     padding: 13px 13px;
+
+    &.wrapper_copyright {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
 
     .copyright {
       font-family: 'Roboto', sans-serif;

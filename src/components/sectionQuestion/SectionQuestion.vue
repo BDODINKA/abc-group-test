@@ -16,7 +16,7 @@
     <img
         v-if="quest.img"
         :src="quest.img"
-        alt="www"
+        alt="image question"
     />
     <v-select
         v-if="typeof quest.answers[0] ===  'string' && quest.answers[0].indexOf('#')"
@@ -35,8 +35,6 @@
         :colors="[...quest.answers]"
         @update:model-value="radioValue"
     />
-
-    <div>PICKED:{{ input }}</div>
     <v-button
         v-bind:isDisabled="!input"
         :class="$style['btn']"

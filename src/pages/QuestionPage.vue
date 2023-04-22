@@ -1,6 +1,11 @@
 <template>
-  <v-header/>
-  <v-question/>
+  <v-header
+      :showBrain="true"
+      :title="'тест на определение IQ'"
+  />
+  <main>
+    <v-question/>
+  </main>
 </template>
 
 <script lang="ts">
@@ -10,7 +15,3 @@ export default defineComponent({
   name: "QuestionPage",
 })
 </script>
-
-<style module lang="scss">
-
-</style>

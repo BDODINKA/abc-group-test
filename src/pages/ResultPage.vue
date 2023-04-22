@@ -1,6 +1,11 @@
 <template>
-  <v-header/>
-  <v-call-btn/>
+  <v-header
+      :showBrain="true"
+      :title="'Готово!'"
+  />
+  <main>
+    <v-result/>
+  </main>
   <v-footer/>
 </template>
 
@@ -9,9 +14,6 @@ import {defineComponent} from "vue";
 
 export default defineComponent({
   name: "ResultPage",
+
 })
 </script>
-
-<style scoped>
-
-</style>

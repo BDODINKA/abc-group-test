@@ -1,5 +1,7 @@
 <template>
-  <a href="tel:" :class="$style['wrapper']">
+  <a href="tel:"
+     :class="[$style['wrapper'],isDisabled && $style['disabled']]"
+  >
     <svg :class="$style['phone']" viewBox="0 0 29 29" fill="none"
          xmlns="http://www.w3.org/2000/svg">
       <path
@@ -23,10 +25,18 @@
   </a>
 </template>
 
-<script>
-export default {
-  name: "VCallBtn"
-}
+<script lang="ts">
+import {defineComponent} from "vue";
+
+export default defineComponent({
+  name: "VCallBtn",
+  props: {
+    isDisabled: {
+      type: Boolean,
+      default: false
+    }
+  }
+})
 </script>
 
 <style module lang="scss">
@@ -41,6 +51,11 @@ export default {
   gap: 18px;
   background: #EB1B00;
   border-radius: 5px;
+
+  &.disabled {
+    pointer-events: none;
+    background: #696969;
+  }
 
   .phone {
     fill: white;

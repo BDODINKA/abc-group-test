@@ -4,7 +4,7 @@
       :title="'Готово!'"
   />
   <main>
-    <v-result/>
+    <v-result :time="10"/>
   </main>
   <v-footer/>
 </template>

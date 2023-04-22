@@ -26,22 +26,66 @@
         Звоните скорее, запись доступна всего
       </p>
       <p :class="[$style['title_count'],$style['count']]">
-        10
+        {{ count }}
       </p>
       <p :class="$style['title_count']">
         МИНУТ
       </p>
     </div>
-    <v-call-btn :class="$style['call_btn']"/>
+    <v-call-btn
+        :class="$style['call_btn']"
+        :isDisabled="stopCount"
+    />
   </v-wrapper>
 </template>
 
-<script>
-export default {
-  name: "VResult",
-}
-</script>
+<script lang="ts">
+import {defineComponent} from "vue";
 
+
+export default defineComponent({
+      name: "VResult",
+      data() {
+        return {
+          count: `${this.time}:00`,
+          timer: 0,
+          stopCount: false,
+        };
+      },
+      props: {
+        time: {
+          type: Number,
+          default: 10
+        }
+      },
+      methods: {
+        counter() {
+          let minutes = this.time
+          let seconds = (minutes * 60) % 60
+          this.timer = setInterval(() => {
+            minutes = ((minutes * 60) - 1) / 60
+            seconds = Math.floor((minutes * 60) % 60)
+            this.count = seconds < 10 ? `${Math.floor(minutes)}:0${seconds}` : `${Math.floor(minutes)}:${seconds}`
+          }, 1000)
+        },
+        stopTimer() {
+          clearTimeout(this.timer)
+        },
+      },
+      mounted() {
+        this.counter()
+      },
+      watch: {
+        count(value) {
+          if (value === '0:00') {
+            this.stopCount = true
+            this.stopTimer()
+          }
+        }
+      }
+    }
+)
+</script>
 <style module lang="scss">
 .wrapper {
   display: flex;

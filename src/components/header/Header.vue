@@ -7,6 +7,9 @@
           :class="$style['logo']"
           v-show="showBrain"
       />
+      <h1 :class="$style['title']"
+          v-if="title"
+      >{{ title }}</h1>
       <input
           id="menu_toggle"
           type="checkbox"
@@ -42,6 +45,9 @@ export default defineComponent({
     showBrain: {
       type: Boolean,
       default: false
+    },
+    title: {
+      type: String,
     }
   },
   computed: {}
@@ -55,19 +61,32 @@ export default defineComponent({
   z-index: 10;
 
   .wrapper {
-    height: 40px;
+    height: 46px;
     background: #181818;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     position: relative;
+    padding: 15px;
 
     .logo {
-      width: 20px;
-      height: 20px;
+      width: 48px;
+      height: 48px;
       position: absolute;
       left: 60px;
+      top: 0;
     }
 
-    padding: 15px;
+    .title {
+      font-family: 'Yeseva One', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 14px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      position: absolute;
+      left: 120px;
+      color: #FFC700;
+    }
 
     input[id='menu_toggle'] {
       display: none;
@@ -79,24 +98,23 @@ export default defineComponent({
       z-index: 10;
       bottom: 10px;
       align-items: center;
-      width: 20px;
-      height: 20px;
+      width: 24px;
+      height: 24px;
       cursor: pointer;
 
       > span {
         display: block;
         position: absolute;
         width: 100%;
-        height: 2px;
+        height: 3px;
         background: #696969;
         transition: 0.3s;
-
 
         &:before, &:after {
           content: '';
           position: absolute;
           width: 100%;
-          height: 2px;
+          height: 3px;
           background: #696969;
           transition: 0.3s;
         }
@@ -110,8 +128,6 @@ export default defineComponent({
           content: "";
           top: 8px;
         }
-
-
       }
 
       &:hover {
@@ -122,8 +138,6 @@ export default defineComponent({
             background: #F4CE0C;
           }
         }
-
-
       }
     }
 
